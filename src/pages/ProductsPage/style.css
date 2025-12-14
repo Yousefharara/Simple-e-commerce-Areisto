@@ -1,0 +1,18 @@
+.products__page {
+    margin-top: 3rem;
+}
+
+.products__page .products__page__content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title h3 {
+  font-size: 1.5rem;
+}
+
+.title p {
+  color: #aaa;
+  font-size: 12px;
+}
