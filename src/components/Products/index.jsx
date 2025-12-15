@@ -36,7 +36,12 @@ const Products = () => {
             ? products.map((item) => {
                 return (
                   <div className="product__item" key={item.id}>
-                    <img src={item.images[0]} alt={item.title} />
+                    <img
+                      src={item.thumbnail}
+                      onLoad={() => console.log("Loaded")}
+                      alt={item.title}
+                      loading="lazy"
+                    />
                     <div className="product__item__content">
                       <h3>{item.title}</h3>
                       <p>{item.description}</p>
