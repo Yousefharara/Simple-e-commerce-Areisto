@@ -64,7 +64,12 @@ const Products = () => {
                 .map((item) => {
                   return (
                     <div className="product__item" key={item.id}>
-                      <img src={item.images[0]} alt="Elef Anime" />
+                      <img
+                        src={item.thumbnail}
+                        onLoad={() => console.log("Loaded")}
+                        alt={item.title}
+                        loading="lazy"
+                      />
                       <div className="product__item__content">
                         {/* <h1>{num}</h1> */}
                         <h3>{item.title}</h3>
