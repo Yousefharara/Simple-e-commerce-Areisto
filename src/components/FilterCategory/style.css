@@ -1,0 +1,17 @@
+.filter__category .list__category {
+  display: flex;
+  margin-top: 12px;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.filter__category .list__category .category {
+  padding: 8px 1rem;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  cursor: pointer;
+}
+.filter__category .list__category .category.active {
+  background-color: black;
+  color: #fff;
+}
