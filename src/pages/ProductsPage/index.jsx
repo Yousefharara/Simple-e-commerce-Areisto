@@ -1,4 +1,3 @@
-import React from "react";
 import CartItems from "../../components/CartItems";
 import FilterCategory from "../../components/FilterCategory";
 import Products from "../../components/Products";
@@ -6,6 +5,7 @@ import Container from "../../components/Container";
 import "./style.css";
 
 const ProductsPage = () => {
+
   return (
     <div className="products__page">
       <Container>
