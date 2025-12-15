@@ -1,0 +1,6 @@
+.cart__items {
+    background-color: #ddd;
+    border-radius: 8px;
+    font-weight: 600;
+    padding: .7rem 1rem;
+}
