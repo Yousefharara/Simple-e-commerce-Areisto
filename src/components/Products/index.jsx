@@ -10,8 +10,10 @@ const Products = () => {
     data,
     isLoading,
     addToData,
+    removeFromData,
     selectedCategory,
     setSelectedCategory,
+    productsStore,
   } = useProductContext();
 
   useEffect(() => {
@@ -27,41 +29,57 @@ const Products = () => {
   return (
     <div className="products__list">
       {isLoading && <h2>Loading ...</h2>}
-      {
-        !isLoading &&
-          data
-            .filter(
-              (item) =>
-                selectedCategory === "all" || item.category === selectedCategory
-            )
-            .splice(0, 30)
-            .map((item) => {
-              return (
-                <div className="product__item" key={item.id}>
-                  <img
-                    src={item.thumbnail}
-                    onLoad={() => console.log("Loaded")}
-                    alt={item.title}
-                    loading="lazy"
-                  />
-                  <div className="product__item__content">
-                    <h3>{item.title}</h3>
-                    <p>{item.description}</p>
-                    <small>Category: {item.category}</small>
-                    <div className="product__footer">
-                      <div className="product__price">${item.price}</div>
+      {!isLoading &&
+        data
+          .filter(
+            (item) =>
+              selectedCategory === "all" || item.category === selectedCategory
+          )
+          .splice(0, 30)
+          .map((item) => {
+            return (
+              <div className="product__item" key={item.id}>
+                <img
+                  src={item.thumbnail}
+                  onLoad={() => console.log("Loaded")}
+                  alt={item.title}
+                  loading="lazy"
+                />
+                <div className="product__item__content">
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                  <small>Category: {item.category}</small>
+                  <div className="product__footer">
+                    <div className="product__price">${item.price}</div>
+                    {productsStore[item.id] === 0 ? (
                       <button
                         onClick={() => addToData(item.id)}
                         className="product__btn"
                       >
                         Add to Cart
                       </button>
-                    </div>
+                    ) : (
+                      <div className="product__store__btn">
+                        <button
+                          onClick={() => addToData(item.id)}
+                          className="product__btn"
+                        >
+                          +
+                        </button>
+                        <p>{productsStore[item.id]}</p>
+                        <button
+                          onClick={() => removeFromData(item.id)}
+                          className="product__btn"
+                        >
+                          -
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </div>
-              );
-            })
-      }
+              </div>
+            );
+          })}
     </div>
   );
 };

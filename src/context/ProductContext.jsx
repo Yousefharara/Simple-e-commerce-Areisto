@@ -31,12 +31,23 @@ const ProductProvider = ({ children }) => {
 
   // ! button to add data
   const addToData = (id) => {
-    let product = Object.keys(productsStore).find((item) => Number(item) === id);
-    console.log('productsStore : ', productsStore);
-    console.log('Object.keys(productsStore) , ', Object.keys(productsStore));
+    let product = Object.keys(productsStore).find(
+      (item) => Number(item) === id
+    );
     setProductsStore((prev) => ({
       ...prev,
       [product]: prev[product] + 1,
+    }));
+  };
+
+  // ! button to remove form data
+  const removeFromData = (id) => {
+    let product = Object.keys(productsStore).find(
+      (item) => Number(item) === id
+    );
+    setProductsStore((prev) => ({
+      ...prev,
+      [product]: prev[product] - 1,
     }));
   };
 
@@ -55,6 +66,7 @@ const ProductProvider = ({ children }) => {
     <ProductContext.Provider
       value={{
         addToData,
+        removeFromData,
         getTotal,
         productsStore,
         selectedCategory,

@@ -43,6 +43,19 @@
   background-color: black;
   color: #fff;
 }
+
 .products__list .product__item .product__item__content .product__footer .product__price {
   font-weight: bold;
+}
+
+.products__list .product__item .product__item__content .product__footer .product__store__btn {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 15px;
+  align-items: center;
+}
+
+.products__list .product__item .product__item__content .product__footer .product__store__btn p {
+  font-size: 15px;
+  font-weight: 500;
 }
